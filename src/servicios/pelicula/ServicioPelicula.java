@@ -56,15 +56,15 @@ public class ServicioPelicula {
     }
     
     
-    public Pelicula BuscarPeliculaTitulo1(String titulo){
-        for (Pelicula pelicula : peliculas){
-            if(pelicula.getTitulo().equalsIgnoreCase(titulo)){
-                System.out.println("la pelicula si existe, es: " + pelicula);
-            }
-                
-        }
-        return null;
-    }
+//    public Pelicula BuscarPeliculaTitulo1(String titulo){
+//        for (Pelicula pelicula : peliculas){
+//            if(pelicula.getTitulo().equalsIgnoreCase(titulo)){
+//                System.out.println("la pelicula si existe, es: " + pelicula);
+//            }
+//                
+//        }
+//        return null;
+//    }
     
     public Pelicula BuscarPeliculaTitulo(String titulo) {
     for (Pelicula pelicula : peliculas) {
@@ -79,8 +79,8 @@ public class ServicioPelicula {
     
       public Pelicula BuscarPeliculaGenero(String genero){
         for (Pelicula pelicula : peliculas){
-            if(pelicula.getGenero().equals(genero)){
-                System.out.println("la pelicula si existe, es: " + pelicula);
+            if(pelicula.getGenero().equalsIgnoreCase(genero)){
+                return pelicula;
             }
                 
         }

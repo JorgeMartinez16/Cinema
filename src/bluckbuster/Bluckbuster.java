@@ -63,6 +63,17 @@ public class Bluckbuster {
                     break;
                 case 6:
                     System.out.println("Has elegido buscar pelicula por genero");
+                    System.out.println("INGRESE EL GENERO DE LA PELICULA");
+                    scanner.nextLine(); 
+                    String generoBusqueda = scanner.nextLine();
+                    Pelicula generoEncontrado = sp.BuscarPeliculaGenero(generoBusqueda);
+                    if (generoEncontrado != null){
+                        System.out.println("LA PELICULA ENCONTRADA ES "+ generoEncontrado.getTitulo());
+                        
+                    } else {
+                        System.out.println("NO SE ENCONTRO TU TITULO");
+                    }
+                    break;
                 case 7:
                     System.out.println("Has elegido buscar alquiler por fecha");
                     break;
