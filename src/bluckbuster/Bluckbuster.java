@@ -3,33 +3,36 @@
 package bluckbuster;
 
 import entidades.Pelicula;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
+import servicios.pelicula.ServicioAlquiler;
 import servicios.pelicula.ServicioPelicula;
 
 public class Bluckbuster {
 
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         
-//        ServicioPersona sp = new ServicioPersona();
-//        Persona p1 = sp.crearPersona();
+
 
         ServicioPelicula sp = new ServicioPelicula();
-        Pelicula peli = sp.CrearPelicula();
+        ServicioAlquiler sa = new ServicioAlquiler();
         
         
         Scanner scanner = new Scanner(System.in);
         int opcion;
         do  {
             System.out.println("Menú de opciones");
-            System.out.println("1. crear Pelicula");
+            System.out.println("1. crear Pelicula"); //OK
             System.out.println("2. Alquilar Peliculas");
-            System.out.println("3. Listar Peliculas");
+            System.out.println("3. Listar Peliculas"); //OK
             System.out.println("4. Listar Alquiler");
-            System.out.println("5. Buscar Pelicula por Titulo ");
-            System.out.println("6. Buscar Pelicula por Genero ");
+            System.out.println("5. Buscar Pelicula por Titulo "); //OK
+            System.out.println("6. Buscar Pelicula por Genero "); //OK
             System.out.println("7. Calcular ingreso total");
-            System.out.println("8.  Salir");
+            System.out.println("8.  Salir"); 
             System.out.print("Ingrese una opción: ");
             opcion = scanner.nextInt();
             switch (opcion) {
@@ -39,7 +42,35 @@ public class Bluckbuster {
                     break;
                 case 2:
                     System.out.println("Has elegido Alquilar pelicula.");
+                    System.out.println("Ingrese los datos del alquiler:");
+
+                   
+                    scanner.nextLine(); 
+                    System.out.println("Ingrese el título de la película:");
+                    String tituloPelicula = scanner.nextLine();
+                  
+                    Pelicula peliculaAlquilada = sp.BuscarPeliculaTitulo(tituloPelicula);
+                    if (peliculaAlquilada != null) {
+                        System.out.println("Ingrese la fecha de inicio del alquiler (formato dd/MM/yyyy):");
+                        String fechaInicioStr = scanner.nextLine();
+                        //___ Convertir la cadena de fecha a un objeto Date
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                        Date fechaInicio = dateFormat.parse(fechaInicioStr); 
+                        System.out.println("Ingrese la fecha de fin del alquiler (formato dd/MM/yyyy):");
+                        String fechaFinStr = scanner.nextLine();
+                        // ___Convertir la cadena de fecha a un objeto Date
+                        Date fechaFin = dateFormat.parse(fechaFinStr);
+                        System.out.println("Ingrese el precio del alquiler:");
+                        double precio = scanner.nextDouble();
+
+                        sa.crearAlquiler(peliculaAlquilada, fechaInicio, fechaFin, precio);
+                        
+                    } else {
+                        System.out.println("No se encontró una película con ese título.");
+                    }
                     break;
+
+                   
                 case 3:
                     System.out.println("Has elegido Listar pelicula");
                     sp.ListarPelicula();
@@ -89,3 +120,9 @@ public class Bluckbuster {
     }
     
 }
+
+
+
+
+
+    

@@ -6,17 +6,24 @@ import java.util.Date;
 
 public class Pelicula {
     private String titulo;
-    private String Genero;
+    private String genero;
     private double lanzamiento;
     private double duracion;
 
     public Pelicula(String titulo, String Genero, double lanzamiento, double duracion) {
         this.titulo = titulo;
-        this.Genero = Genero;
+        this.genero = genero;
         this.lanzamiento = lanzamiento;
         this.duracion = duracion;
     }
+    
+    @Override
+    public String toString() {
+        return "Título: " + titulo + ", Género: " + genero + ", Lanzamiento: " + lanzamiento + ", Duración: " + duracion;
+    }
 
+    
+    
    
 
     public String getTitulo() {
@@ -24,7 +31,7 @@ public class Pelicula {
     }
 
     public String getGenero() {
-        return Genero;
+        return genero;
     }
 
     public double getLanzamiento() {
@@ -40,7 +47,7 @@ public class Pelicula {
     }
 
     public void setGenero(String Genero) {
-        this.Genero = Genero;
+        this.genero = Genero;
     }
 
     public void setLanzamiento(double lanzamiento) {

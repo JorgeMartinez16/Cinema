@@ -43,28 +43,22 @@ public class ServicioPelicula {
         
         Pelicula nuevaPelicula = new Pelicula(nombre, genero, lanzamiento, duracion);
         peliculas.add(nuevaPelicula);
+        System.out.println("Pelicula '" + nuevaPelicula.getTitulo() + "' creada exitosamente.");
         return nuevaPelicula;
+        
     }   
     
     
     
     public void ListarPelicula(){
-        System.out.println("Lista de Peliculas");
+        System.out.println("PELICULAS DISPONIBLES");
         for(Pelicula pelicula : peliculas){
             System.out.println(pelicula.toString());
         }
     }
     
     
-//    public Pelicula BuscarPeliculaTitulo1(String titulo){
-//        for (Pelicula pelicula : peliculas){
-//            if(pelicula.getTitulo().equalsIgnoreCase(titulo)){
-//                System.out.println("la pelicula si existe, es: " + pelicula);
-//            }
-//                
-//        }
-//        return null;
-//    }
+
     
     public Pelicula BuscarPeliculaTitulo(String titulo) {
     for (Pelicula pelicula : peliculas) {
