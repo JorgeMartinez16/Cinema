@@ -52,9 +52,9 @@ public class ServicioPelicula {
     
     public void ListarPelicula(){
         System.out.println("PELICULAS DISPONIBLES");
-        for(Pelicula pelicula : peliculas){
+        peliculas.forEach((pelicula) -> {
             System.out.println(pelicula.toString());
-        }
+        });
     }
     
     

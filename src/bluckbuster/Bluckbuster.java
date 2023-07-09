@@ -77,7 +77,7 @@ public class Bluckbuster {
                     break;
                 case 4:
                     System.out.println("Has elegido Listar alquiler");
-                    
+                    sa.listarAlquileres();
                     break;
                 case 5: 
                     System.out.println("Has elegido buscar pelicula por titulo");

@@ -14,12 +14,20 @@ public class Alquiler {
     private Date FechaFin;
     private double Precio;
 
+    
+     @Override
+    public String toString() {
+        return "Pelicula: " + PeliculaAlquilada + ", Fecha Inicio: " + FechaInicio + ", Fecha Entrega: " + FechaFin + ", Precio: " + Precio;
+    }
+
   public Alquiler(Pelicula PeliculaAlquilada, Date FechaInicio, Date FechaFin, double Precio) {
         this.PeliculaAlquilada = PeliculaAlquilada;
         this.FechaInicio = FechaInicio;
         this.FechaFin = FechaFin;
         this.Precio = Precio;
     }
+  
+  
 
     public void setPeliculaAlquilada(Pelicula PeliculaAlquilada) {
         this.PeliculaAlquilada = PeliculaAlquilada;
