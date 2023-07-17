@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servicios.pelicula;
+package servicios;
  
+import servicios.CapturarDatos;
 import entidades.Alquiler;
 import entidades.Pelicula;
 import java.util.ArrayList;
@@ -54,10 +55,8 @@ public class ServicioPelicula {
     }
     
     public Pelicula BuscarPeliculaTitulo() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Ingrese el título de la película:");
-        String tituloBusqueda = scanner.nextLine();
+        
+        String tituloBusqueda = CapturarDatos.capturarString("Ingrese titulo de la pelicula: ");
 
         for (Pelicula pelicula : peliculas) {
             if (pelicula.getTitulo().equalsIgnoreCase(tituloBusqueda)) {
@@ -69,7 +68,11 @@ public class ServicioPelicula {
         return null;
     }
 
-
+//  public void alquilarPelicula() {
+//        int idPelicula = Utilidades.capturarEntero("Ingrese el ID de la película que desea alquilar: ");
+//        String nombreCliente = Utilidades.capturarString("Ingrese el nombre del cliente: ");
+//        // Resto del código para realizar el alquiler
+//    }
     
       public Pelicula BuscarPeliculaGenero(String genero){
         for (Pelicula pelicula : peliculas){

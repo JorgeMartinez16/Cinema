@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servicios.pelicula;
+package servicios;
 
 import entidades.Alquiler;
 import entidades.Pelicula;
@@ -29,8 +29,8 @@ public class ServicioAlquiler {
 
         Pelicula peliculaAlquilada = sp.BuscarPeliculaTitulo(); // Llamada al método sin argumentos
         if (peliculaAlquilada != null) {
-            Date fechaInicio = this.CapturarFecha("Ingrese la fecha de inicio del alquiler (formato dd/MM/yyyy):");
-            Date fechaFin = this.CapturarFecha("Ingrese la fecha de fin del alquiler (formato dd/MM/yyyy):");
+            Date fechaInicio = CapturarDatos.capturarFecha("Ingrese la fecha de inicio del alquiler (formato dd/MM/yyyy):");
+            Date fechaFin = CapturarDatos.capturarFecha("Ingrese la fecha de fin del alquiler (formato dd/MM/yyyy):");
 
             System.out.println("Ingrese el precio del alquiler:");
             double precio = scanner.nextDouble();
@@ -45,38 +45,29 @@ public class ServicioAlquiler {
         }
     }
 
-    private Date CapturarFecha(String titulo) {
-        Date fechaValida = null;
-
-        while (fechaValida == null) {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println(titulo);
-            String fechaInicioStr = scanner.nextLine();
-            // Convertir la cadena de fecha a un objeto Date
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-
-            try {
-                fechaValida = dateFormat.parse(fechaInicioStr);
-            } catch (ParseException e) {
-                System.out.println("Error al analizar la fecha de inicio. Inténtelo nuevamente.");
-                fechaValida = null;
-            }
-        }
-        
-        return fechaValida;
-
-    }
-
-//    public Alquiler CrearAlquiler(){
+//    private Date CapturarFecha(String titulo) {
+//        Date fechaValida = null;
+//
+//        while (fechaValida == null) {
+//            Scanner scanner = new Scanner(System.in);
+//            System.out.println(titulo);
+//            String fechaInicioStr = scanner.nextLine();
+//            // Convertir la cadena de fecha a un objeto Date
+//            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//
+//            try {
+//                fechaValida = dateFormat.parse(fechaInicioStr);
+//            } catch (ParseException e) {
+//                System.out.println("Error al analizar la fecha de inicio. Inténtelo nuevamente.");
+//                fechaValida = null;
+//            }
+//        }
 //        
-//        System.out.println("Ingrese  Nueva Alquiler: \n");
-//        
-//        Alquiler nuevoAlquiler = new Alquiler(sp.CrearPeliculaPelicula peliculaALquilada, Date fechaInicio, Date fechaFin, double precio);
-//        alquileres.add(nuevoAlquiler);
-//        System.out.println("Alquiler '" + nuevoAlquiler.getPeliculaAlquilada() + "' creada exitosamente.");
-//        return nuevoAlquiler;
-//        
-//    }  
+//        return fechaValida;
+//
+//    }
+
+ 
     public void listarAlquileres() {
         System.out.println("Lista de alquileres:");
         for (Alquiler alquiler : alquileres) {

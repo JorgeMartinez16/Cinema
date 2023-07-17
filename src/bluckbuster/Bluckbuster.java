@@ -5,8 +5,8 @@ package bluckbuster;
 import entidades.Pelicula;
 import java.text.ParseException;
 import java.util.Scanner;
-import servicios.pelicula.ServicioAlquiler;
-import servicios.pelicula.ServicioPelicula;
+import servicios.ServicioAlquiler;
+import servicios.ServicioPelicula;
 
 public class Bluckbuster {
 
