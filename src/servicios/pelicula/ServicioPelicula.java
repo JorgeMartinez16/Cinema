@@ -18,17 +18,15 @@ import java.util.Scanner;
  */
 public class ServicioPelicula {
     
-    private List <Pelicula> peliculas;
-
+    private final List <Pelicula> peliculas;
+    
     public ServicioPelicula() {
         this.peliculas = new ArrayList<>();
     }
 
-    
     private Scanner leer = new Scanner(System.in);
       
     public Pelicula CrearPelicula(){
-        
         System.out.println("Ingrese  Nueva Pelicula: \n");
         
         System.out.println("Ingrese nombre de la pelicula: ");
@@ -44,12 +42,10 @@ public class ServicioPelicula {
         Pelicula nuevaPelicula = new Pelicula(nombre, genero, lanzamiento, duracion);
         peliculas.add(nuevaPelicula);
         System.out.println("Pelicula '" + nuevaPelicula.getTitulo() + "' creada exitosamente.");
-        return nuevaPelicula;
-        
+        return nuevaPelicula;   
     }   
     
-    
-    
+
     public void ListarPelicula(){
         System.out.println("PELICULAS DISPONIBLES");
         peliculas.forEach((pelicula) -> {
@@ -57,19 +53,23 @@ public class ServicioPelicula {
         });
     }
     
-    
+    public Pelicula BuscarPeliculaTitulo() {
+        Scanner scanner = new Scanner(System.in);
 
-    
-    public Pelicula BuscarPeliculaTitulo(String titulo) {
-    for (Pelicula pelicula : peliculas) {
-        if (pelicula.getTitulo().equalsIgnoreCase(titulo)) {
-            return pelicula; // Retorna la película encontrada
+        System.out.println("Ingrese el título de la película:");
+        String tituloBusqueda = scanner.nextLine();
+
+        for (Pelicula pelicula : peliculas) {
+            if (pelicula.getTitulo().equalsIgnoreCase(tituloBusqueda)) {
+                System.out.println("La película encontrada es: " + pelicula.getTitulo());
+                return pelicula;
+            }
         }
+        System.out.println("No se encontró la película con ese título.");
+        return null;
     }
-    return null; // Si no se encuentra la película, retorna null
-}
 
-    
+
     
       public Pelicula BuscarPeliculaGenero(String genero){
         for (Pelicula pelicula : peliculas){
@@ -80,5 +80,7 @@ public class ServicioPelicula {
         }
         return null;
     }
+
+   
 }
 

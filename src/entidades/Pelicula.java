@@ -10,7 +10,7 @@ public class Pelicula {
     private double lanzamiento;
     private double duracion;
 
-    public Pelicula(String titulo, String Genero, double lanzamiento, double duracion) {
+    public Pelicula(String titulo, String genero, double lanzamiento, double duracion) {
         this.titulo = titulo;
         this.genero = genero;
         this.lanzamiento = lanzamiento;
