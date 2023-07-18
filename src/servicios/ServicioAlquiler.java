@@ -23,17 +23,15 @@ public class ServicioAlquiler {
     }
 
     public Alquiler crearAlquiler(ServicioPelicula sp) {
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Ingrese los datos del alquiler:");
 
-        Pelicula peliculaAlquilada = sp.BuscarPeliculaTitulo(); // Llamada al método sin argumentos
+        Pelicula peliculaAlquilada = sp.BuscarPeliculaTitulo(); 
         if (peliculaAlquilada != null) {
             Date fechaInicio = CapturarDatos.capturarFecha("Ingrese la fecha de inicio del alquiler (formato dd/MM/yyyy):");
             Date fechaFin = CapturarDatos.capturarFecha("Ingrese la fecha de fin del alquiler (formato dd/MM/yyyy):");
-
-            System.out.println("Ingrese el precio del alquiler:");
-            double precio = scanner.nextDouble();
+            
+            double precio = CapturarDatos.capturarDouble("Ingrese el precio del alquiler: ");
 
             Alquiler nuevoAlquiler = new Alquiler(peliculaAlquilada, fechaInicio, fechaFin, precio);
             alquileres.add(nuevoAlquiler);
@@ -45,27 +43,6 @@ public class ServicioAlquiler {
         }
     }
 
-//    private Date CapturarFecha(String titulo) {
-//        Date fechaValida = null;
-//
-//        while (fechaValida == null) {
-//            Scanner scanner = new Scanner(System.in);
-//            System.out.println(titulo);
-//            String fechaInicioStr = scanner.nextLine();
-//            // Convertir la cadena de fecha a un objeto Date
-//            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-//
-//            try {
-//                fechaValida = dateFormat.parse(fechaInicioStr);
-//            } catch (ParseException e) {
-//                System.out.println("Error al analizar la fecha de inicio. Inténtelo nuevamente.");
-//                fechaValida = null;
-//            }
-//        }
-//        
-//        return fechaValida;
-//
-//    }
 
  
     public void listarAlquileres() {

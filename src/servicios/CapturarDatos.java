@@ -26,12 +26,12 @@ public class CapturarDatos {
     
     
 
-    public static Date capturarFecha(String titulo) {
+    public static Date capturarFecha(String mensaje) {
 
         Date fechaValida = null;
 
         while (fechaValida == null) {
-            System.out.println(titulo);
+            System.out.println(mensaje);
             String fechaStr = scanner.nextLine();
 
             try {
@@ -44,23 +44,18 @@ public class CapturarDatos {
         return fechaValida;
 
     }
-
     
-    
-    
-//    public static Date capturarFecha(String mensaje) {
-//
-//        System.out.println("ingrese la fecha");
-//        String fechaStr = scanner.nextLine();
-//
-//        try {
-//            return dateFormat.parse(fechaStr);
-//        } catch (ParseException e) {
-//            System.out.println("Fecha inválida. Inténtalo nuevamente.");
-//            return capturarFecha(mensaje);
-//        }
-//    }
 
-
+    public static double capturarDouble(String mensaje ){
+        System.out.println(mensaje);
+           while (!scanner.hasNextDouble()) {
+            System.out.println("Por favor, ingrese un número válido.");
+            System.out.print(mensaje);
+            scanner.next(); 
+        }
+        double flotante = scanner.nextDouble();
+        scanner.nextLine(); 
+        return flotante;
+    }
 }
 

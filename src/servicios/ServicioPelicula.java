@@ -30,15 +30,11 @@ public class ServicioPelicula {
     public Pelicula CrearPelicula(){
         System.out.println("Ingrese  Nueva Pelicula: \n");
         
-        System.out.println("Ingrese nombre de la pelicula: ");
-        String nombre = leer.nextLine();
-        System.out.println("Ingrese Genero ");
-        String genero = leer.nextLine();
-        System.out.println("Ingrese año de lanzamiento");
-        double lanzamiento = leer.nextDouble();
-        System.out.println("Ingrese duracion: ");
-        double duracion = leer.nextDouble();
-        leer.nextLine();
+        String nombre = CapturarDatos.capturarString("Ingrese titulo de la pelicula: ");
+        String genero = CapturarDatos.capturarString("Ingrese el Genero de la Pelicula: ");
+        double lanzamiento = CapturarDatos.capturarDouble("Ingrese año de lanzamiento: ");
+        double duracion = CapturarDatos.capturarDouble("Ingrese duracion: ");
+        
         
         Pelicula nuevaPelicula = new Pelicula(nombre, genero, lanzamiento, duracion);
         peliculas.add(nuevaPelicula);
@@ -68,11 +64,7 @@ public class ServicioPelicula {
         return null;
     }
 
-//  public void alquilarPelicula() {
-//        int idPelicula = Utilidades.capturarEntero("Ingrese el ID de la película que desea alquilar: ");
-//        String nombreCliente = Utilidades.capturarString("Ingrese el nombre del cliente: ");
-//        // Resto del código para realizar el alquiler
-//    }
+
     
       public Pelicula BuscarPeliculaGenero(String genero){
         for (Pelicula pelicula : peliculas){
