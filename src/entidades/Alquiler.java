@@ -5,29 +5,30 @@
  */
 package entidades;
 
+
 import java.util.Date;
 
 
+
 public class Alquiler {
+
     private Pelicula PeliculaAlquilada;
     private Date FechaInicio;
     private Date FechaFin;
     private double Precio;
-
     
-     @Override
+
+    @Override
     public String toString() {
         return "Pelicula: " + PeliculaAlquilada + ", Fecha Inicio: " + FechaInicio + ", Fecha Entrega: " + FechaFin + ", Precio: " + Precio;
     }
 
-  public Alquiler(Pelicula PeliculaAlquilada, Date FechaInicio, Date FechaFin, double Precio) {
+    public Alquiler(Pelicula PeliculaAlquilada, Date FechaInicio, Date FechaFin, double Precio) {
         this.PeliculaAlquilada = PeliculaAlquilada;
         this.FechaInicio = FechaInicio;
         this.FechaFin = FechaFin;
         this.Precio = Precio;
     }
-  
-  
 
     public void setPeliculaAlquilada(Pelicula PeliculaAlquilada) {
         this.PeliculaAlquilada = PeliculaAlquilada;
@@ -61,9 +62,4 @@ public class Alquiler {
         return Precio;
     }
 
-   
-    
-    
-    
-    
 }

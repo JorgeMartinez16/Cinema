@@ -2,7 +2,6 @@
  
 package bluckbuster;
 
-import entidades.Pelicula;
 import java.text.ParseException;
 import java.util.Scanner;
 import servicios.ServicioAlquiler;
@@ -38,43 +37,35 @@ public class Bluckbuster {
                     System.out.println("Has elegido crear pelicula.");
                     sp.CrearPelicula();
                     break;
+                    
                 case 2:
                     System.out.println("Has elegido Alquilar pelicula.");
                     sa.crearAlquiler(sp);
                     break;
 
-                   
                 case 3:
                     System.out.println("Has elegido Listar pelicula");
                     sp.ListarPelicula();
                     break;
+                    
                 case 4:
                     System.out.println("Has elegido Listar alquiler");
                     sa.listarAlquileres();
                     break;
+                    
                 case 5:
-
                     System.out.println("Has elegido buscar película por título");
-                   
                     sp.BuscarPeliculaTitulo();
                     break;
 
                 case 6:
                     System.out.println("Has elegido buscar pelicula por genero");
-                    System.out.println("INGRESE EL GENERO DE LA PELICULA");
-                    scanner.nextLine(); 
-                    String generoBusqueda = scanner.nextLine();
-                    Pelicula generoEncontrado = sp.BuscarPeliculaGenero(generoBusqueda);
-                    if (generoEncontrado != null){
-                        System.out.println("LA PELICULA ENCONTRADA ES "+ generoEncontrado.getTitulo());
-                        
-                    } else {
-                        System.out.println("NO SE ENCONTRO TU TITULO");
-                    }
-                    break;
+                    sp.buscarPeliculasPorGenero();
+                    
                 case 7:
                     System.out.println("Has elegido buscar alquiler por fecha");
                     break;
+                    
                 case 8:
                     System.out.println("Has elegido calcular ingreso total");
                 default:

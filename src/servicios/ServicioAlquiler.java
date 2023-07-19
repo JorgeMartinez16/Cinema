@@ -26,7 +26,7 @@ public class ServicioAlquiler {
 
         System.out.println("Ingrese los datos del alquiler:");
 
-        Pelicula peliculaAlquilada = sp.BuscarPeliculaTitulo(); 
+        Pelicula peliculaAlquilada = sp.BuscarPeliculaTitulo();
         if (peliculaAlquilada != null) {
             Date fechaInicio = CapturarDatos.capturarFecha("Ingrese la fecha de inicio del alquiler (formato dd/MM/yyyy):");
             Date fechaFin = CapturarDatos.capturarFecha("Ingrese la fecha de fin del alquiler (formato dd/MM/yyyy):");
